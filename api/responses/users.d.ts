@@ -110,31 +110,31 @@ interface CreateUserSuccessResponse extends UserCommon
      * Extended Format.
      */
     updated_at: string;
-    /** 
+    /**
      * 
      */
     reset_token: unknown | null;
-    /** 
+    /**
      * 
      */
     reset_email: unknown | null;
-    /** 
+    /**
      * 
      */
     reset_token_expires_at: unknown | null;
-    /** 
+    /**
      * 
      */
     stripe_customer_id: unknown | null;
-    /** 
+    /**
      * 
      */
     source_audio_id: unknown | null;
-    /** 
+    /**
      * 
      */
     destroyed_at: unknown | null;
-    /** 
+    /**
      * 
      */
     professional_access_requested_at: unknown | null;

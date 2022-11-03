@@ -20,7 +20,9 @@ interface TrackSearchRequest
      * omitted form the results.
      */
     nq?: string;
-    /** A lyrics query which only matches on track lyrics. */
+    /**
+     * A lyrics query which only matches on track lyrics.
+     */
     lq?: string;
     /**
      * A BPM range (inclusive) within which to restrict results. Unbounded on
@@ -36,7 +38,7 @@ interface TrackSearchRequest
      * A facetted parameter. The track category(-ies) to search.
      */
     categories?: Array<string>;
-    /** 
+    /**
      * A facetted parameter. The track era(s) to search.
      */
     eras?: Array<string>;
