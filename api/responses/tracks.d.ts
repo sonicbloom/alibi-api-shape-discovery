@@ -138,7 +138,10 @@ interface TrackSearchResponse extends TrackBase
     inner_hits: Array<number>;
 }
 
-interface TrackById extends TrackBase
+/**
+ * The shape of a track returned by the `/tracks/:id` endpoint.
+ */
+interface TrackByIdResponse extends TrackBase
 {
     /**
      * An array of Track objects, one for each of the track's alt-tracks
@@ -148,13 +151,14 @@ interface TrackById extends TrackBase
     stems: Array<TrackBase>;
     /**
      * The original SourceAudio metadata. This property is not included in
-     * TrackById objects found in the `master_track` property. In other words,
-     * this property is only available at the top level TrackById instance.
+     * TrackByIdResponse objects found in the `master_track` property. In other
+     * words, this property is only available at the top level
+     * TrackByIdResponse instance.
      */
     source_audio_meta?: object;
     /**
-     * The full TrackById Object of the master track for this track. It is only
-     * included if the requested track is _not_ a master track.
+     * The full TrackByIdResponse Object of the master track for this track. It
+     * is only included if the requested track is _not_ a master track.
      */
-    master_track?: TrackById;
+    master_track?: TrackByIdResponse;
 }

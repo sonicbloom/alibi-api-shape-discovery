@@ -91,3 +91,23 @@ interface GetPublicPlaylistsResponse
      */
     items: Array<PlaylistBase>;
 }
+
+/**
+ * The shape of the response returned by the [GET] `/playlists` endpoint.
+ */
+interface GetUserPlaylistsResponse
+{
+    /**
+     * The number of playlists.
+     */
+    count: number;
+    /**
+     * An array of user playlists.
+     */
+    items: Array<PlaylistBase>;
+}
+
+/**
+ * The shape of the response returned by the [POST] `/playlists` endpoint.
+ */
+type CreateUserPlaylistResponse = PlaylistByIdResponse;

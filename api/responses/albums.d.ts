@@ -62,7 +62,7 @@ interface AlbumSearchResponse extends SearchResponse<AlbumBase>
 /**
  * The shape of an Album returned by the `/albums/:id` endpoint.
  */
-interface AlbumById extends AlbumBase
+interface AlbumByIdResponse extends AlbumBase
 {
     /**
      * An array of Track Objects, one each for the Album's master tracks.

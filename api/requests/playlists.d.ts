@@ -85,3 +85,45 @@ interface GetPublicPlaylistsRequest
      */
     page?: number;
 }
+
+/**
+ * The shape of a request for user Playlists.
+ */
+interface GetUserPlaylistsRequest
+{
+    /**
+     * The number of items per page (max 100, default 20).
+     */
+    size?: number;
+    /**
+     * The page number (1 = first page and the default).
+     */
+    page?: number;
+}
+
+/**
+ * The shape of a user playlist creation request.
+ */
+interface CreateUserPlaylistRequest
+{
+    // <-- REQUIRED FIELDS -->
+
+    /**
+     * The name of the playlist.
+     */
+    name: string;
+
+    // <-- OPTIONAL FIELDS -->
+
+    /**
+     * A description of the playlist.
+     */
+    description?: string;
+
+    // <-- INSERT OTHER OPTIONAL FIELDS HERE -->
+}
+
+/**
+ * The shape of a user playlist update request.
+ */
+type UpdateUserPlaylistRequest = Partial<CreateUserPlaylistRequest>;
