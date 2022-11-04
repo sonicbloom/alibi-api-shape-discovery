@@ -102,7 +102,7 @@ interface GetUserPlaylistsRequest
 }
 
 /**
- * The shape of a user playlist creation request.
+ * The shape of a user Playlist creation request.
  */
 interface CreateUserPlaylistRequest
 {
@@ -124,6 +124,21 @@ interface CreateUserPlaylistRequest
 }
 
 /**
- * The shape of a user playlist update request.
+ * The shape of a user Playlist update request.
  */
 type UpdateUserPlaylistRequest = Partial<CreateUserPlaylistRequest>;
+
+/**
+ * The shape of a request to clone a specific user Playlist.
+ */
+interface CloneUserPlaylistRequest
+{
+    /**
+     * The name to apply to the cloned playlist. Must be unique for the user.
+     */
+    name: string;
+
+    // <-- INSERT OTHER OPTIONAL FIELDS HERE -->
+}
+
+

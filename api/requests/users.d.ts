@@ -106,3 +106,57 @@ interface UserEmailChangeRequest
 {
     // <-- INSERT FIELDS HERE -->
 }
+
+//-----------------------------
+// USER SENTIMENT
+//-----------------------------
+
+/**
+ * The shape of a user sentiment update request (the [POST] `/my/sentiment` endpoint).
+ */
+interface UserSentimentUpdateRequest
+{
+    /**
+     * The ID of the track for which to log sentiment.
+     */
+    track_id: number;
+    /**
+     * The sentiment to log. Options available are:
+     * - `-1`: Dislike
+     * - `0`: Clear/Reset
+     * - `1`: Like/Favorite
+     */
+    sentiment: -1 | 0 | 1;
+}
+
+/**
+ * The shape of a request for tracks liked by the user.
+ */
+interface GetUserLikesRequest
+{
+    /**
+     * The number of tracks per page to include within the items array (max
+     * 100, default 20).
+     */
+    size?: number;
+    /**
+     * The page number (1 = first page and the default).
+     */
+    page?: number;
+}
+
+/**
+ * The shape of a request for tracks disliked by the user.
+ */
+interface GetUserDislikesRequest
+{
+    /**
+     * The number of tracks per page to include within the items array (max
+     * 100, default 20).
+     */
+    size?: number;
+    /**
+     * The page number (1 = first page and the default).
+     */
+    page?: number;
+}

@@ -111,3 +111,8 @@ interface GetUserPlaylistsResponse
  * The shape of the response returned by the [POST] `/playlists` endpoint.
  */
 type CreateUserPlaylistResponse = PlaylistByIdResponse;
+
+/**
+ * The shape of the response returned by the `/playlists/:id/clone` endpoint.
+ */
+type CloneUserPlaylistResponse = PlaylistByIdResponse;

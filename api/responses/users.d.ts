@@ -179,17 +179,7 @@ type UserSigninResponse = UserProfile;
 /**
  * The shape of a user signout response as returned by the `/signout` endpoint.
  */
-interface UserSignoutResponse
-{
-    /**
-     * The HTTP Status code of the success (e.g. 200).
-     */
-    status: number;
-    /**
-     * A human readable message describing the outcome (e.g. "Signed out").
-     */
-    message: string;
-}
+type UserSignoutResponse = SuccessResponse;
 
 /**
  * The shape of a user profile object as returned by the [GET] `/my/profile`
@@ -202,3 +192,36 @@ type GetMyProfileResponse = UserProfile;
  * endpoint.
  */
 type UpdateMyProfileResponse = UserProfile
+
+
+/**
+ * The shape of the response returned by the `/my/likes` endpoint.
+ */
+interface GetUserLikesResponse
+{
+    /**
+     * The total number of tracks "liked" by the user.
+     */
+    count: number;
+    /**
+     * An array of "tracks" liked by the user. If no results are found, this
+     * will be an empty array `[]`.
+     */
+    items: Array<TrackBase>;
+}
+
+/**
+ * The shape of the response returned by the `/my/dislikes` endpoint.
+ */
+interface GetUserDislikesResponse
+{
+    /**
+     * The total number of tracks "disliked" by the user.
+     */
+    count: number;
+    /**
+     * An array of "tracks" liked by the user. If no results are found, this
+     * will be an empty array `[]`.
+     */
+    items: Array<TrackBase>;
+}

@@ -73,3 +73,18 @@ interface ErrorResponse
      */
     error: string;
 }
+
+/**
+ * The default shape of a success response.
+ */
+interface SuccessResponse
+{
+    /**
+     * The HTTP Status code of the success (e.g. 200).
+     */
+    status: number;
+    /**
+     * A human readable message describing the outcome.
+     */
+    message: string;
+}
