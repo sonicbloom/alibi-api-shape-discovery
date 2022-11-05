@@ -51,7 +51,9 @@ interface AlbumBase
 }
 
 /**
- * The shape of the response returned by the `/albums/search` endpoint.
+ * The shape of an Album search response.
+ * 
+ * **Endpoint:** `[POST] /albums/search`
  */
 interface AlbumSearchResponse extends SearchResponse<AlbumBase>
 {
@@ -60,7 +62,9 @@ interface AlbumSearchResponse extends SearchResponse<AlbumBase>
 
 
 /**
- * The shape of an Album returned by the `/albums/:id` endpoint.
+ * The shape of an Album listing response.
+ * 
+ * **Endpoint:** `[GET] /albums/:id`
  */
 interface AlbumByIdResponse extends AlbumBase
 {

@@ -41,7 +41,9 @@ interface PlaylistBase
 }
 
 /**
- * The shape of the response returned by the `/playlists/search` endpoint.
+ * The shape of a Playlist search response.
+ * 
+ * **Endpoint:** `[POST] /playlists/search`
  */
 interface PlaylistSearchResponse extends SearchResponse<PlaylistBase>
 {
@@ -49,7 +51,9 @@ interface PlaylistSearchResponse extends SearchResponse<PlaylistBase>
 }
 
 /**
- * The shape of a Playlist returned by the `/playlists/:id` endpoint.
+ * The shape of a Playlist listing response.
+ * 
+ * **Endpoint:** `[GET] /playlists/:id`
  */
 interface PlaylistByIdResponse extends PlaylistBase
 {
@@ -76,7 +80,10 @@ interface PlaylistRequestTrack extends TrackBase
 }
 
 /**
- * The shape of the response returned by the `/playlists/public` endpoint.
+ * The shape of the public Playlist listing response.
+ * 
+ * **Endpoint:** `[GET] /playlists/public`
+ * 
  * @deprecated
  */
 interface GetPublicPlaylistsResponse
@@ -93,7 +100,9 @@ interface GetPublicPlaylistsResponse
 }
 
 /**
- * The shape of the response returned by the [GET] `/playlists` endpoint.
+ * The shape of the user Playlist listing response.
+ * 
+ * **Endpoint:** `[GET] /playlists`
  */
 interface GetUserPlaylistsResponse
 {
@@ -108,11 +117,15 @@ interface GetUserPlaylistsResponse
 }
 
 /**
- * The shape of the response returned by the [POST] `/playlists` endpoint.
+ * The shape of the user Playlist creation response.
+ * 
+ * **Endpoint:** `[POST] /playlists`
  */
 type CreateUserPlaylistResponse = PlaylistByIdResponse;
 
 /**
- * The shape of the response returned by the `/playlists/:id/clone` endpoint.
+ * The shape of the Playlist clone response.
+ * 
+ * **Endpoint:** `[POST] /playlists/:id/clone`
  */
 type CloneUserPlaylistResponse = PlaylistByIdResponse;

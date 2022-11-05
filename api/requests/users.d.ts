@@ -1,6 +1,8 @@
 
 /**
  * The shape of a User creation request body.
+ * 
+ * **Endpoint:** `[POST] /users`
  */
 interface CreateUserRequest
 {
@@ -77,6 +79,8 @@ interface CreateUserRequest
 
 /**
  * The shape of a user sign in request.
+ * 
+ * **Endpoint:** `[POST] /signin`
  */
 interface SignInRequest
 {
@@ -91,8 +95,9 @@ interface SignInRequest
 }
 
 /**
- * The shape of a user profile update request (the [POST] `/my/profile`
- * endpoint).
+ * The shape of a user profile update request.
+ * 
+ * **Endpoint:** `[POST] /my/profile`
  */
 interface UserProfileUpdateRequest
 {
@@ -100,7 +105,9 @@ interface UserProfileUpdateRequest
 }
 
 /**
- * The shape of a user email change request (the [POST] `/my/email` endpoint).
+ * The shape of a user email change request.
+ * 
+ * **Endpoint:** `[POST] /my/email`
  */
 interface UserEmailChangeRequest
 {
@@ -113,6 +120,8 @@ interface UserEmailChangeRequest
 
 /**
  * The shape of a user sentiment update request (the [POST] `/my/sentiment` endpoint).
+ * 
+ * **Endpoint:** `[POST] /my/sentiment`
  */
 interface UserSentimentUpdateRequest
 {
@@ -131,32 +140,87 @@ interface UserSentimentUpdateRequest
 
 /**
  * The shape of a request for tracks liked by the user.
+ * 
+ * **Endpoint:** `[GET] /my/likes`
  */
-interface GetUserLikesRequest
-{
-    /**
-     * The number of tracks per page to include within the items array (max
-     * 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
-}
+type GetUserLikesRequest = PagedRequest;
 
 /**
  * The shape of a request for tracks disliked by the user.
+ * 
+ * **Endpoint:** `[GET] /my/dislikes`
  */
-interface GetUserDislikesRequest
+type GetUserDislikesRequest = PagedRequest;
+
+//-----------------------------
+// USER PLAYS
+//-----------------------------
+
+/**
+ * The shape of a request for tracks played by the user. Tracks can appear
+ * multiple times within the `items` array (possibly across pages).
+ * 
+ * **Endpoint:** `[GET] /my/plays`
+ */
+type GetUserPlaysRequest = PagedRequest;
+
+/**
+ * The shape of a request to log playback of a track by the user.
+ * 
+ * **Endpoint:** `[POST] /my/plays`
+ */
+interface LogUserTrackPlaybackRequest
 {
     /**
-     * The number of tracks per page to include within the items array (max
-     * 100, default 20).
+     * The ID of the track for which to log a user "play".
      */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
+    track_id: number;
 }
+
+//-----------------------------
+// USER SEARCHES
+//-----------------------------
+
+/**
+ * The shape of a request for the user's saved searches.
+ * 
+ * **Endpoint:** `[GET] /my/searches`
+ */
+type GetUserSearchesRequest = PagedRequest;
+
+/**
+ * The shape of a request to save a search for the user.
+ * 
+ * **Endpoint:** `[POST] /my/searches`
+ */
+interface SaveUserSearchRequest
+{
+    /**
+     * The name to assign to the saved search. Does **not** have to be unique.
+     */
+    name: string;
+    /**
+     * The shape of the Track Search request to save as a saved search.
+     */
+    search_params: TrackSearchRequest;
+}
+
+//-----------------------------
+// USER COMMERCE
+//-----------------------------
+
+/**
+ * The shape of a request for a list of the user's downloaded Tracks.
+ * 
+ * **Endpoint:** `[GET] /my/downloads`
+ */
+type GetUserDownloadsRequest = PagedRequest;
+
+/**
+ * The shape of a request for a list of the user's Orders.
+ * 
+ * **Endpoint:** `[GET] /my/orders`
+ */
+type GetUserOrdersRequest = PagedRequest;
+
+

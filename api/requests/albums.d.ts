@@ -7,8 +7,10 @@ type AlbumSearchSortOptions = "release_date" | "relevance" | "name.keyword";
 
 /**
  * The shape of an Album Search request body.
+ * 
+ * **Endpoint:** `[POST] /albums/search`
  */
-interface AlbumSearchRequest
+interface AlbumSearchRequest extends PagedRequest
 {
     /**
      * Full text query phrase to match against albums. This targets title,
@@ -35,14 +37,6 @@ interface AlbumSearchRequest
      */
     sub_categories?: Array<string>;
     /**
-     * The number of items per page (max 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
-    /**
      * How to sort the results. Options include:
      * - "release_date"
      * - "relevance"
@@ -58,16 +52,7 @@ interface AlbumSearchRequest
 
 /**
  * The shape of a request for an Album with a specific ID.
+ * 
+ * **Endpoint:** `[GET] /albums/:id`
  */
-interface AlbumByIdRequest
-{
-    /**
-     * The number of tracks per page to include within the tracks array (max
-     * 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
-}
+type AlbumByIdRequest = PagedRequest;

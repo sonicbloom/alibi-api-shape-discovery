@@ -90,7 +90,9 @@ interface UserCommon
 }
 
 /**
- * The shape of an error response returned by the `/users` endpoint.
+ * The shape of an error response returned when attempting to create a user.
+ * 
+ * **Endpoint:** `[POST] /users`
  */
 type CreateUserErrorResponse = {
     /**
@@ -101,7 +103,9 @@ type CreateUserErrorResponse = {
 }
 
 /**
- * The shape of a user when successfully created by the `/users` endpoint.
+ * The shape of a success response when attempting to create a user.
+ * 
+ * **Endpoint:** `[POST] /users`
  */
 interface CreateUserSuccessResponse extends UserCommon
 {
@@ -172,30 +176,38 @@ interface UserProfile extends UserCommon
 }
 
 /**
- * The shape of a user signin response as returned by the `/signin` endpoint.
+ * The shape of a user signin response.
+ * 
+ * **Endpoint:** `[POST] /signin`
  */
 type UserSigninResponse = UserProfile;
 
 /**
- * The shape of a user signout response as returned by the `/signout` endpoint.
+ * The shape of a user signout response.
+ * 
+ * **Endpoint:** `[POST] /signout`
  */
 type UserSignoutResponse = SuccessResponse;
 
 /**
- * The shape of a user profile object as returned by the [GET] `/my/profile`
- * endpoint.
+ * The shape of a retrieved user profile object.
+ * 
+ * **Endpoint:** `[GET] /my/profile`
  */
 type GetMyProfileResponse = UserProfile;
 
 /**
- * The shape of a user profile object as returned by the [POST] `/my/profile`
- * endpoint.
+ * The shape of an updated user profile object.
+ * 
+ * **Endpoint:** `[POST] /my/profile`
  */
 type UpdateMyProfileResponse = UserProfile
 
 
 /**
- * The shape of the response returned by the `/my/likes` endpoint.
+ * The shape of the retrieved set of the user's "likes".
+ * 
+ * **Endpoint:** `[GET] /my/likes`
  */
 interface GetUserLikesResponse
 {
@@ -211,7 +223,9 @@ interface GetUserLikesResponse
 }
 
 /**
- * The shape of the response returned by the `/my/dislikes` endpoint.
+ * The shape of the retrieved set of the user's "dislikes".
+ * 
+ * **Endpoint:** `[GET] /my/dislikes`
  */
 interface GetUserDislikesResponse
 {
@@ -224,4 +238,46 @@ interface GetUserDislikesResponse
      * will be an empty array `[]`.
      */
     items: Array<TrackBase>;
+}
+
+/**
+ * The shape of a saved search.
+ */
+interface SavedSearch
+{
+    /**
+     * The ID of the saved search.
+     */
+    id: number;
+    /**
+     * The name of the saved search.
+     */
+    name: string;
+    /**
+     * The date and time at which the search was created as a string in ISO
+     * 8601 Extended Format.
+     */
+    created_at: string;
+    /**
+     * The saved Track Search request.
+     */
+    search_params: TrackSearchRequest;
+}
+
+/**
+ * The shape of the retrieved set of the user's saved searches.
+ * 
+ * **Endpoint:** `[GET] /my/searches`
+ */
+interface GetUserSearchesResponse
+{
+    /**
+     * The total number of saved searches available.
+     */
+    count: number;
+    /**
+     * An array of the user's saved searches. If no results are found, this
+     * will be an empty array `[]`.
+     */
+    items: Array<SavedSearch>;
 }

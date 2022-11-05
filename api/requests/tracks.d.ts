@@ -6,8 +6,10 @@ type TrackSearchSortOptions = "album_title.keyword" | "bpm" | "duration" | "rele
 
 /**
  * The shape of a Track Search request body.
+ * 
+ * **Endpoint:** `[POST] /tracks/search`
  */
-interface TrackSearchRequest
+interface TrackSearchRequest extends PagedRequest
 {
     /**
      * The query string to match tracks on. This targets all text in the track,
@@ -106,14 +108,6 @@ interface TrackSearchRequest
      * parameter to indicate lack of preference.
      */
     vocals?: [true] | [false];
-    /**
-     * The number of items per page (max 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
     /**
      * The field to order results by. Options include:
      * - "album_title.keyword"

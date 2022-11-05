@@ -6,8 +6,10 @@ type PlaylistSearchSortOptions = "release_date" | "relevance" | "name.keyword";
 
 /**
  * The shape of a Playlist Search request body.
+ * 
+ * **Endpoint:** `[POST] /playlists/search`
  */
-interface PlaylistSearchRequest
+interface PlaylistSearchRequest extends PagedRequest
 {
     /**
      * Full text query phrase to match against playlists. This targets title,
@@ -30,14 +32,6 @@ interface PlaylistSearchRequest
      */
     sub_categories?: Array<string>;
     /**
-     * The number of items per page (max 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
-    /**
      * The field to order results by. Options include:
      * - "release_date"
      * - "relevance"
@@ -53,56 +47,37 @@ interface PlaylistSearchRequest
 
 /**
  * The shape of a request for a Playlist with a specific ID.
+ * 
+ * **Endpoint:** `[GET] /playlists/:id`
  */
-interface PlaylistByIdRequest
-{
-    /**
-     * The number of tracks per page to include within the tracks array (max
-     * 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
-}
+type PlaylistByIdRequest = PagedRequest;
 
 /**
  * The shape of a request for public Playlists with an optional query.
+ * 
+ * **Endpoint:** `[GET] /playlists/public`
+ * 
+ * @deprecated
  */
-interface GetPublicPlaylistsRequest
+interface GetPublicPlaylistsRequest extends PagedRequest
 {
     /**
      * Query phrase to match against playlist names only.
      */
     q?: string;
-    /**
-     * The number of items per page (max 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
 }
 
 /**
  * The shape of a request for user Playlists.
+ * 
+ * **Endpoint:** `[GET] /playlists`
  */
-interface GetUserPlaylistsRequest
-{
-    /**
-     * The number of items per page (max 100, default 20).
-     */
-    size?: number;
-    /**
-     * The page number (1 = first page and the default).
-     */
-    page?: number;
-}
+type GetUserPlaylistsRequest = PagedRequest;
 
 /**
  * The shape of a user Playlist creation request.
+ * 
+ * **Endpoint:** `[POST] /playlists`
  */
 interface CreateUserPlaylistRequest
 {
@@ -125,11 +100,15 @@ interface CreateUserPlaylistRequest
 
 /**
  * The shape of a user Playlist update request.
+ * 
+ * **Endpoint:** `[PATCH] /playlists/:id`
  */
 type UpdateUserPlaylistRequest = Partial<CreateUserPlaylistRequest>;
 
 /**
  * The shape of a request to clone a specific user Playlist.
+ * 
+ * **Endpoint:** `[POST] /playlists/:id/clone`
  */
 interface CloneUserPlaylistRequest
 {

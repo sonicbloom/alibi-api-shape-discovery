@@ -127,7 +127,9 @@ interface TrackBase
 }
 
 /**
- * The shape of a track returned by the `/tracks/search` endpoint.
+ * The shape of a Track search response.
+ * 
+ * **Endpoint:** `[POST] /tracks/search`
  */
 interface TrackSearchResponse extends TrackBase
 {
@@ -139,7 +141,9 @@ interface TrackSearchResponse extends TrackBase
 }
 
 /**
- * The shape of a track returned by the `/tracks/:id` endpoint.
+ * The shape of the response provided when requesting a Track by ID.
+ * 
+ * **Endpoint:** `[GET] /tracks/:id`
  */
 interface TrackByIdResponse extends TrackBase
 {
