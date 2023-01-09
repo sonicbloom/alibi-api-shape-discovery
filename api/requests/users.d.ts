@@ -42,39 +42,54 @@ interface CreateUserRequest
      */
     last_name?: string;
     /**
-     * 
+     * The user's address
      */
     address?: string;
     /**
-     * 
+     * The user's city
      */
     city?: string;
     /**
-     * 
+     * The user's region/state
      */
     region?: string;
     /**
-     * 
+     * The user's zip code
      */
     postal_code?: number | string;
     /**
-     * 
+     * The user's Alpha‑2 country code
      */
     country_code?: string;
     /**
-     * 
+     * The user's company industry
      */
     company_industry?: string;
     /**
-     * 
+     * The user's company title
      */
     company_position?: string;
     /**
-     * 
+     * The user's company title
      */
     company_projects?: string;
+    /**
+     * The user's music genres
+     */
+    music_genres_customer_facing?: string;
+    /**
+     * The user's music sector
+     */
+    music_sector_preference_customer_facing?: string;
+    /**
+     * User requests to have a "Professional Access" account
+     */
+    pro_access?: boolean;
+    /**
+     * The user's allowlisted youtube channels
+     */
+    youtube_ids?: Array<string>;
 
-    // <-- INSERT OTHER OPTIONAL FIELDS HERE -->
 }
 
 /**
@@ -101,17 +116,70 @@ interface SignInRequest
  */
 interface UserProfileUpdateRequest
 {
-    // <-- INSERT FIELDS HERE -->
-}
-
-/**
- * The shape of a user email change request.
- * 
- * **Endpoint:** `[POST] /my/email`
- */
-interface UserEmailChangeRequest
-{
-    // <-- INSERT FIELDS HERE -->
+    /**
+     * The user's company.
+     */
+    company?: string;
+    /**
+     * The user's phone number. No format requirements.
+     */
+    phone_number?: string;
+    /**
+     * The user's first name.
+     */
+    first_name?: string;
+    /**
+     * The user's last name.
+     */
+    last_name?: string;
+    /**
+     * The user's address
+     */
+    address?: string;
+    /**
+     * The user's city
+     */
+    city?: string;
+    /**
+     * The user's region/state
+     */
+    region?: string;
+    /**
+     * The user's zip code
+     */
+    postal_code?: number | string;
+    /**
+     * The user's Alpha‑2 country code
+     */
+    country_code?: string;
+    /**
+     * The user's company industry
+     */
+    company_industry?: string;
+    /**
+     * The user's company title
+     */
+    company_position?: string;
+    /**
+     * The user's company type of projects
+     */
+    company_projects?: string;
+    /**
+     * The user's music genres
+     */
+    music_genres_customer_facing?: string;
+    /**
+     * The user's music sector
+     */
+    music_sector_preference_customer_facing?: string;
+    /**
+     * User requests to have a "Professional Access" account
+     */
+    pro_access?: boolean;
+    /**
+     * The user's allowlisted youtube channels
+     */
+    youtube_ids?: Array<string>;
 }
 
 //-----------------------------

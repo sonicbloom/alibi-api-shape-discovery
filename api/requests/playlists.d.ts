@@ -95,7 +95,16 @@ interface CreateUserPlaylistRequest
      */
     description?: string;
 
-    // <-- INSERT OTHER OPTIONAL FIELDS HERE -->
+    /**
+     * Image data to be used as the thumbnail for the playlist. Only administrators can send this parameter.
+     */
+    image?: string;
+
+    /**
+     * Indicates wheter playlist is public or private. Only administrators can send this parameter.
+     */
+    public?: boolean;
+
 }
 
 /**
@@ -116,8 +125,6 @@ interface CloneUserPlaylistRequest
      * The name to apply to the cloned playlist. Must be unique for the user.
      */
     name: string;
-
-    // <-- INSERT OTHER OPTIONAL FIELDS HERE -->
 }
 
 

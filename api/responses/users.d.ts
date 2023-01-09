@@ -30,35 +30,35 @@ interface UserCommon
      */
     last_name: string | null;
     /**
-     * 
+     * The user's address.
      */
     address: string | null;
     /**
-     * 
+     * The user's city
      */
     city: string | null;
     /**
-     * 
+     * The user's region/state
      */
     region: string | null;
     /**
-     * 
+     *  The user's zip code
      */
     postal_code: string | null;
     /**
-     * 
+     * The user's Alpha‑2 country cod
      */
     country_code: string | null;
     /**
-     * 
+     * The user's company industry
      */
     company_industry: string | null;
     /**
-     * 
+     * The user's company title
      */
     company_position: string | null;
     /**
-     * 
+     * The user's company type of projects
      */
     company_projects: string | null;
     /**
@@ -72,19 +72,19 @@ interface UserCommon
      */
     youtube_ids: Array<string>;
     /**
-     * 
+     * The user's music genres
      */
-    music_genres_customer_facing: unknown | null;
+    music_genres_customer_facing: string | null;
     /**
-     * 
+     * The user's music sector 
      */
-    music_sector_preference_customer_facing: unknown | null;
+    music_sector_preference_customer_facing: string | null;
     /**
-     * 
+     * json object containing metada about this user. User's imported from source audio will have the date they were imported
      */
-    metadata: unknown | {};
+    metadata: object | {};
     /**
-     * 
+     * Boolean indicating if the user has professional access
      */
     professional_access_enabled: boolean;
 }
@@ -115,35 +115,37 @@ interface CreateUserSuccessResponse extends UserCommon
      */
     updated_at: string;
     /**
-     * 
+     * random hexadecimal strings to use as token when user asks to reset his password
      */
-    reset_token: unknown | null;
+    reset_token: string | null;
     /**
      * 
      */
-    reset_email: unknown | null;
+    reset_email: string | null;
     /**
-     * 
+     * The date and time at which the reset token expires, as a string in ISO 8601
+     * Extended Format.
      */
-    reset_token_expires_at: unknown | null;
+    reset_token_expires_at: string | null;
     /**
-     * 
+     * Stripe's customer id
      */
-    stripe_customer_id: unknown | null;
+    stripe_customer_id: string | null;
     /**
-     * 
+     * source audio id
      */
-    source_audio_id: unknown | null;
+    source_audio_id: number | null;
     /**
-     * 
+     * The date and time at which the user was anonimized/deleted, as a string in ISO 8601
+     * Extended Format.
      */
-    destroyed_at: unknown | null;
+    destroyed_at: string | null;
     /**
-     * 
+    * The date and time at which the user requested to have a professional access account, as a string in ISO 8601
+     * Extended Format.
      */
-    professional_access_requested_at: unknown | null;
+    professional_access_requested_at: string | null;
 
-    // <-- INSERT OTHER OPTIONAL FIELDS HERE -->
 }
 
 /**
@@ -152,27 +154,26 @@ interface CreateUserSuccessResponse extends UserCommon
 interface UserProfile extends UserCommon
 {
     /**
-     * 
+     * customer's id 
      */
     id: number;
     /**
-     * 
+     * customer's first name and last name
      */
     full_name: string;
     /**
-     * 
+     * if the customer has an active subscription, the id of the subscription
      */
-    active_subscription_id: unknown | null;
+    active_subscription_id: number | null;
     /**
-     * 
+     * Stripe's customer id
      */
-    stripe_customer_id: unknown | null;
+    stripe_customer_id: string | null;
     /**
-     * 
+     * boolean indicating if the user has requested to have professional access
      */
     pro_access: boolean;
 
-    // <-- INSERT OTHER OPTIONAL FIELDS HERE -->
 }
 
 /**

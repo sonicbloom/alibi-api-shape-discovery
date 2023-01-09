@@ -32,3 +32,21 @@ interface SubscribeRequest
      */
     subscription_id: number;
 }
+
+
+/**
+ * The shape of a request to license a track (under the current user's subscription) 
+ * 
+ * **Endpoint:** `[POST] /shop/subscription/license`
+ */
+interface LicenseTrackRequest
+{
+    /**
+     * The ID of the Track to add to the cart.
+     */
+    track_id: number;
+    /**
+     * The name of the project to which this item will apply.
+     */
+    project_name: string;
+}
