@@ -96,7 +96,7 @@ interface Cart
      */
     subtotal_cents: number;
     /**
-     * 
+     * Stripe publishable(public) key
      */
     stripe_pk: string;
     /**
@@ -115,9 +115,9 @@ interface CartItem
      */
     id: number;
     /**
-     * 
+     * Metadata for this track. If this track was purchased in a purchase of an entire album, the metadata will have the album name and album id. Same for the playlists.
      */
-    metadata: {} | unknown;
+    metadata: object;
     /**
      * The name of the project to which the item is associated, if provided
      * (`null` if not).
@@ -161,10 +161,21 @@ type GetUserShoppingCartResponse = Cart;
  */
 interface SubscribeResponse
 {
+    
     /**
-     * 
+     * HTTP status code inside the json response, used on the vue application
      */
-    client_secret: string;
+    status: number;
+    
+    /**
+     * message indicating success or error description
+     */
+    message: string;
+    
+    /**
+     * the subscription that the user just subscribed to
+     */
+    user_subscription: Subscription;
 }
 
 /**
@@ -179,11 +190,11 @@ interface CheckoutResponse
      */
     order_id: number;
     /**
-     * 
+     * Stripe publishable(public) key
      */
     stripe_pk: string;
     /**
-     * 
+     * the stripe's payment intent client secret
      */
     client_secret: string;
 }
