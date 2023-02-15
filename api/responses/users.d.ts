@@ -1,5 +1,22 @@
 
 /**
+ * Metadata related to the import process from Source Audio.
+ */
+interface UserImportMetadata
+{
+    /**
+     * The time at which the user's profile information was imported in
+     * ISO 8601 Extended Format.
+     */
+    imported_at: string;
+    /**
+     * The time at which the user's playlist information was imported in
+     * ISO 8601 Extended Format.
+     */
+    playlist_imported_at?: string;
+}
+
+/**
  * The common base shape for User objects.
  */
 interface UserCommon
@@ -9,7 +26,7 @@ interface UserCommon
      */
     email: string;
     /**
-     * The user's company.
+     * The name of the user's company.
      */
     company: string | null;
     /**
@@ -58,7 +75,7 @@ interface UserCommon
      */
     company_position: string | null;
     /**
-     * The user's company type of projects
+     * The type of projects the customer's company works on
      */
     company_projects: string | null;
     /**
@@ -80,9 +97,9 @@ interface UserCommon
      */
     music_sector_preference_customer_facing: string | null;
     /**
-     * json object containing metada about this user. User's imported from source audio will have the date they were imported
+     * Metadata about this user. Users imported from source audio will have the date they were imported
      */
-    metadata: object | {};
+    metadata: UserImportMetadata | {};
     /**
      * Boolean indicating if the user has professional access
      */
@@ -119,7 +136,8 @@ interface CreateUserSuccessResponse extends UserCommon
      */
     reset_token: string | null;
     /**
-     * 
+     * The email address to which the user would like their account updated. This is
+     * only non-`null` during the period where the user has yet to confirm the change.
      */
     reset_email: string | null;
     /**

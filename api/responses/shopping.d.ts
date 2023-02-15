@@ -106,6 +106,38 @@ interface Cart
 }
 
 /**
+ * The shape of metadata attached to a `CartItem` track when the track was
+ * obtained as part of an album purchase.
+ */
+interface CartItemAlbumMetadata
+{
+    /**
+     * The name of the album.
+     */
+    album: string;
+    /**
+     * The ID of the album.
+     */
+    album_id: number;
+}
+
+/**
+ * The shape of metadata attached to a `CartItem` track when the track was
+ * obtained as part of a playlist purchase
+ */
+interface CartItemPlaylistMetadata
+{
+    /**
+     * The name of the playlist.
+     */
+    playlist: string;
+    /**
+     * The ID of the playlist.
+     */
+    playlist_id: number;
+}
+
+/**
  * The shape of an Item in a Cart. Represents a pairing of Track and License.
  */
 interface CartItem
@@ -117,7 +149,7 @@ interface CartItem
     /**
      * Metadata for this track. If this track was purchased in a purchase of an entire album, the metadata will have the album name and album id. Same for the playlists.
      */
-    metadata: object;
+    metadata: CartItemAlbumMetadata | CartItemPlaylistMetadata | {};
     /**
      * The name of the project to which the item is associated, if provided
      * (`null` if not).

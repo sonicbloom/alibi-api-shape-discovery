@@ -70,7 +70,7 @@ interface CreateUserRequest
      */
     company_position?: string;
     /**
-     * The user's company title
+     * The type of projects the customer's company works on
      */
     company_projects?: string;
     /**
@@ -161,7 +161,7 @@ interface UserProfileUpdateRequest
      */
     company_position?: string;
     /**
-     * The user's company type of projects
+     * The type of projects the customer's company works on
      */
     company_projects?: string;
     /**
