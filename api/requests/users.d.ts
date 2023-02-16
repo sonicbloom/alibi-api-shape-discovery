@@ -1,10 +1,25 @@
 
 /**
+ * The common base shape for User request objects.
+ */
+interface UserRequestCommon extends Partial<Omit<UserBase, "postal_code">>
+{
+    /**
+     * The user's zip code.
+     */
+    postal_code?: number | string;
+    /**
+     * User requests to have a "Professional Access" account.
+     */
+    pro_access?: boolean;
+}
+
+/**
  * The shape of a User creation request body.
  * 
  * **Endpoint:** `[POST] /users`
  */
-interface CreateUserRequest
+interface CreateUserRequest extends UserRequestCommon
 {
     // <-- REQUIRED FIELDS -->
 
@@ -25,71 +40,6 @@ interface CreateUserRequest
      * `password` field.
      */
     password_confirmation?: string;
-    /**
-     * The user's company.
-     */
-    company?: string;
-    /**
-     * The user's phone number. No format requirements.
-     */
-    phone_number?: string;
-    /**
-     * The user's first name.
-     */
-    first_name?: string;
-    /**
-     * The user's last name.
-     */
-    last_name?: string;
-    /**
-     * The user's address
-     */
-    address?: string;
-    /**
-     * The user's city
-     */
-    city?: string;
-    /**
-     * The user's region/state
-     */
-    region?: string;
-    /**
-     * The user's zip code
-     */
-    postal_code?: number | string;
-    /**
-     * The user's Alpha‑2 country code
-     */
-    country_code?: string;
-    /**
-     * The user's company industry
-     */
-    company_industry?: string;
-    /**
-     * The user's company title
-     */
-    company_position?: string;
-    /**
-     * The type of projects the customer's company works on
-     */
-    company_projects?: string;
-    /**
-     * The user's music genres
-     */
-    music_genres_customer_facing?: string;
-    /**
-     * The user's music sector
-     */
-    music_sector_preference_customer_facing?: string;
-    /**
-     * User requests to have a "Professional Access" account
-     */
-    pro_access?: boolean;
-    /**
-     * The user's allowlisted youtube channels
-     */
-    youtube_ids?: Array<string>;
-
 }
 
 /**
@@ -114,73 +64,7 @@ interface SignInRequest
  * 
  * **Endpoint:** `[POST] /my/profile`
  */
-interface UserProfileUpdateRequest
-{
-    /**
-     * The user's company.
-     */
-    company?: string;
-    /**
-     * The user's phone number. No format requirements.
-     */
-    phone_number?: string;
-    /**
-     * The user's first name.
-     */
-    first_name?: string;
-    /**
-     * The user's last name.
-     */
-    last_name?: string;
-    /**
-     * The user's address
-     */
-    address?: string;
-    /**
-     * The user's city
-     */
-    city?: string;
-    /**
-     * The user's region/state
-     */
-    region?: string;
-    /**
-     * The user's zip code
-     */
-    postal_code?: number | string;
-    /**
-     * The user's Alpha‑2 country code
-     */
-    country_code?: string;
-    /**
-     * The user's company industry
-     */
-    company_industry?: string;
-    /**
-     * The user's company title
-     */
-    company_position?: string;
-    /**
-     * The type of projects the customer's company works on
-     */
-    company_projects?: string;
-    /**
-     * The user's music genres
-     */
-    music_genres_customer_facing?: string;
-    /**
-     * The user's music sector
-     */
-    music_sector_preference_customer_facing?: string;
-    /**
-     * User requests to have a "Professional Access" account
-     */
-    pro_access?: boolean;
-    /**
-     * The user's allowlisted youtube channels
-     */
-    youtube_ids?: Array<string>;
-}
+type UserProfileUpdateRequest = UserRequestCommon;
 
 //-----------------------------
 // USER SENTIMENT

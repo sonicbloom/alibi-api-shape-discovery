@@ -19,65 +19,17 @@ interface UserImportMetadata
 /**
  * The common base shape for User response objects.
  */
-interface UserCommon
+interface UserResponseCommon extends Nullable<UserBase>
 {
     /**
      * The user's email address.
      */
     email: string;
     /**
-     * The name of the user's company.
-     */
-    company: string | null;
-    /**
-     * The user's phone number.
-     */
-    phone_number: string | null;
-    /**
      * The date at which the user was created as a string in ISO 8601 Extended
      * Format.
      */
     created_at: string;
-    /**
-     * The user's first name.
-     */
-    first_name: string | null;
-    /**
-     * The user's last name.
-     */
-    last_name: string | null;
-    /**
-     * The user's address.
-     */
-    address: string | null;
-    /**
-     * The user's city
-     */
-    city: string | null;
-    /**
-     * The user's region/state
-     */
-    region: string | null;
-    /**
-     *  The user's zip code
-     */
-    postal_code: string | null;
-    /**
-     * The user's Alpha‑2 country cod
-     */
-    country_code: string | null;
-    /**
-     * The user's company industry
-     */
-    company_industry: string | null;
-    /**
-     * The user's company title
-     */
-    company_position: string | null;
-    /**
-     * The type of projects the customer's company works on
-     */
-    company_projects: string | null;
     /**
      * The user's role within the Alibi Library. This will be either "user" or
      * "admin".
@@ -88,14 +40,6 @@ interface UserCommon
      * Alibi.
      */
     youtube_ids: Array<string>;
-    /**
-     * The user's music genres
-     */
-    music_genres_customer_facing: string | null;
-    /**
-     * The user's music sector 
-     */
-    music_sector_preference_customer_facing: string | null;
     /**
      * Metadata about this user. Users imported from source audio will have the date they were imported
      */
@@ -124,7 +68,7 @@ type CreateUserErrorResponse = {
  * 
  * **Endpoint:** `[POST] /users`
  */
-interface CreateUserSuccessResponse extends UserCommon
+interface CreateUserSuccessResponse extends UserResponseCommon
 {
     /**
      * The date at which the profile was last updated as a string in ISO 8601
@@ -170,7 +114,7 @@ interface CreateUserSuccessResponse extends UserCommon
 /**
  * The main shape of a user profile object.
  */
-interface UserProfile extends UserCommon
+interface UserProfile extends UserResponseCommon
 {
     /**
      * The user's ID.
