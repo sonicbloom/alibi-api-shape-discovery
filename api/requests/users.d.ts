@@ -187,7 +187,8 @@ interface UserProfileUpdateRequest
 //-----------------------------
 
 /**
- * The shape of a user sentiment update request (the [POST] `/my/sentiment` endpoint).
+ * The shape of a user sentiment update request (the [POST] `/my/sentiment`
+ * endpoint).
  * 
  * **Endpoint:** `[POST] /my/sentiment`
  */
@@ -290,5 +291,3 @@ type GetUserDownloadsRequest = PagedRequest;
  * **Endpoint:** `[GET] /my/orders`
  */
 type GetUserOrdersRequest = PagedRequest;
-
-

@@ -35,14 +35,15 @@ interface SubscribeRequest
 
 
 /**
- * The shape of a request to license a track (under the current user's subscription) 
+ * The shape of a request to license a track (under the current user's
+ * subscription).
  * 
  * **Endpoint:** `[POST] /shop/subscription/license`
  */
 interface LicenseTrackRequest
 {
     /**
-     * The ID of the Track to add to the cart.
+     * The ID of the Track to license.
      */
     track_id: number;
     /**

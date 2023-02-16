@@ -17,7 +17,7 @@ interface UserImportMetadata
 }
 
 /**
- * The common base shape for User objects.
+ * The common base shape for User response objects.
  */
 interface UserCommon
 {
@@ -132,17 +132,19 @@ interface CreateUserSuccessResponse extends UserCommon
      */
     updated_at: string;
     /**
-     * random hexadecimal strings to use as token when user asks to reset his password
+     * Random hexadecimal string to use as a token when the user asks to reset
+     * their password.
      */
     reset_token: string | null;
     /**
-     * The email address to which the user would like their account updated. This is
-     * only non-`null` during the period where the user has yet to confirm the change.
+     * The email address to which the user would like their account updated.
+     * This is only non-`null` during the period where the user has yet to
+     * confirm the change.
      */
     reset_email: string | null;
     /**
-     * The date and time at which the reset token expires, as a string in ISO 8601
-     * Extended Format.
+     * The date and time at which the reset token expires as a string in ISO
+     * 8601 Extended Format.
      */
     reset_token_expires_at: string | null;
     /**
@@ -150,20 +152,19 @@ interface CreateUserSuccessResponse extends UserCommon
      */
     stripe_customer_id: string | null;
     /**
-     * source audio id
+     * The user's Source Audio ID.
      */
     source_audio_id: number | null;
     /**
-     * The date and time at which the user was anonimized/deleted, as a string in ISO 8601
-     * Extended Format.
+     * The date and time at which the user was anonimized/deleted as a string
+     * in ISO 8601 Extended Format.
      */
     destroyed_at: string | null;
     /**
-    * The date and time at which the user requested to have a professional access account, as a string in ISO 8601
-     * Extended Format.
+     * The date and time at which the user requested to have a "Professional
+     * Access" account as a string in ISO 8601 Extended Format.
      */
     professional_access_requested_at: string | null;
-
 }
 
 /**
@@ -172,15 +173,16 @@ interface CreateUserSuccessResponse extends UserCommon
 interface UserProfile extends UserCommon
 {
     /**
-     * customer's id 
+     * The user's ID.
      */
     id: number;
     /**
-     * customer's first name and last name
+     * The user's first name and last name
      */
     full_name: string;
     /**
-     * if the customer has an active subscription, the id of the subscription
+     * The ID of the user's active subscription if one exists, `null`
+     * otherwise.
      */
     active_subscription_id: number | null;
     /**
@@ -188,10 +190,9 @@ interface UserProfile extends UserCommon
      */
     stripe_customer_id: string | null;
     /**
-     * boolean indicating if the user has requested to have professional access
+     * Whether or not the user has requested a Professional Access account.
      */
     pro_access: boolean;
-
 }
 
 /**
