@@ -1,2 +1,5 @@
-// No special configuration required. The existence of the file alone is enough
-// to mark this as a TypeScript project root.
+{
+    "compilerOptions": {
+        "strict": true,
+    }
+}
