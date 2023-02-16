@@ -49,7 +49,7 @@ interface UserBase
      */
     company_position: string;
     /**
-     * The type of projects the customer's company works on.
+     * The type of projects the user's company works on.
      */
     company_projects: string;
     /**
