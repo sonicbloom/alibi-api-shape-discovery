@@ -41,7 +41,8 @@ interface UserResponseCommon extends Nullable<UserBase>
      */
     youtube_ids: Array<string>;
     /**
-     * Metadata about this user. Users imported from source audio will have the date they were imported
+     * Metadata about this user. Users imported from Source Audio will have
+     * the date they were imported.
      */
     metadata: UserImportMetadata | {};
     /**
