@@ -196,17 +196,31 @@ type GetUserShoppingCartResponse = Cart;
 interface SubscribeResponse
 {
     /**
-     * HTTP status code inside the JSON response, used on the vue application.
+     * Hardcoded numeric value 200, for internal Alibi's website purposes only.
+     * This field will only be present on successful subscription purchases
+     * (HTTP 200).
      */
-    status: number;
-    /**
-     * Descriptive message indicating success or error.
+    status?: 200;
+    /*
+     * Descriptive message indicating success or error. This field will only be
+     * present on successful subscription purchases (HTTP 200).
      */
-    message: string;
-    /**
-     * The subscription to which the user just subscribed.
+    message?: string;
+    /*
+     * The subscription to which the user just subscribed. This field will only
+     * be present on successful subscription purchases (HTTP 200).
      */
-    user_subscription: Subscription;
+    user_subscription?: Subscription;
+    /*
+     * Stripe's client_secret of the
+     * [SetupIntents](https://stripe.com/docs/payments/setup-intents). When the
+     * client tries to purchase a subscription and they don't have any cards on
+     * file, we create a Stripe SetupIntents on their behalf. The "client
+     * secret" of that intent is returned in this field in order to enable the
+     * client to specify a new card. This field will only be present on HTTP
+     * response code 402 (payment required).
+     */
+    client_secret?: string;
 }
 
 /**

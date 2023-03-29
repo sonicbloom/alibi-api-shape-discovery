@@ -43,7 +43,8 @@ interface SubscribeRequest
 interface LicenseTrackRequest
 {
     /**
-     * The ID of the Track to license.
+     * The ID of the Track to be licensed under the current user's
+     * subscription.
      */
     track_id: number;
     /**
