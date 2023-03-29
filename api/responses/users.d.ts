@@ -49,6 +49,10 @@ interface UserResponseCommon extends Nullable<UserBase>
      * Boolean indicating if the user has professional access
      */
     professional_access_enabled: boolean;
+    /**
+     * The user's Stripe Customer ID.
+     */
+    stripe_customer_id: string | null;
 }
 
 /**
@@ -93,10 +97,6 @@ interface CreateUserSuccessResponse extends UserResponseCommon
      */
     reset_token_expires_at: string | null;
     /**
-     * Stripe's customer id
-     */
-    stripe_customer_id: string | null;
-    /**
      * The user's Source Audio ID.
      */
     source_audio_id: number | null;
@@ -130,10 +130,6 @@ interface UserProfile extends UserResponseCommon
      * otherwise.
      */
     active_subscription_id: number | null;
-    /**
-     * Stripe's customer id
-     */
-    stripe_customer_id: string | null;
     /**
      * Whether or not the user has requested a Professional Access account.
      */
