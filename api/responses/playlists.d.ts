@@ -30,6 +30,10 @@ interface PlaylistBase
      */
     image_url: string;
     /**
+     * A string ID that uniquely identifies this playlist within the database.
+     */
+    slug: string;
+    /**
      * The number of tracks in the playlist.
      */
     num_tracks: number;

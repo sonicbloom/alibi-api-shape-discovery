@@ -84,6 +84,10 @@ interface TrackBase
      */
     version_name: string;
     /**
+     * A string ID that uniquely identifies this track within the database.
+     */
+    slug: string;
+    /**
      * The ID of the master track for this track. If this track is itself a
      * master track, then `null`.
      */

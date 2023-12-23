@@ -48,6 +48,10 @@ interface AlbumBase
      * inconsistency with the data.
      */
     catalog: string;
+    /**
+     * A string ID that uniquely identifies this album within the database.
+     */
+    slug: string;
 }
 
 /**
